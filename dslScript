@@ -1,0 +1,20 @@
+job("DSL Job"){
+  description("Test Automation")
+  
+  scm{    
+    git('https://github.com/sowmyanarayanan-sailapathi/ACMEBuild')
+   }
+  
+  triggers{
+    scm('* * * * *')
+  }
+  
+  steps{
+    maven('package')
+  }
+  
+  publishers{
+    mailer('sowmyanarayanan.sailapathi@gmail.com')
+  }
+  
+}
